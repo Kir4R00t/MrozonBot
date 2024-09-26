@@ -10,7 +10,7 @@ BOT_TOKEN = os.getenv('TOKEN')
 intents = discord.Intents.default()
 bot = commands.Bot(command_prefix='!', intents=intents)
 
-
+# Startup
 @bot.event
 async def on_ready():
     # Main bot guild (which is a serer of two ppl :v)
@@ -40,6 +40,9 @@ async def on_ready():
     print(f"Active discord members in {guild}:")
     for member in guild.members:
         print(f'{member.name}\n')
+
+# Commands
+
 
 
 bot.run(BOT_TOKEN)
