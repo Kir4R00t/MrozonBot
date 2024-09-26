@@ -19,13 +19,11 @@ async def on_ready():
         if guild.name == guild:
             break
 
-    # Bot connection info
     print(
         f'{bot.user} is connected to the following guild:\n'
         f'{guild.name}(id: {guild.id})'
     )
 
-    # Commands sync
     try:
         print("Synced commands: \n")
         synced = await bot.tree.sync()
