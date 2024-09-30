@@ -12,15 +12,12 @@ intents = discord.Intents.default()
 intents.message_content = True
 bot = commands.Bot(command_prefix='!', intents=intents)
 
-# Startup
+# - Startup
 @bot.event
 async def on_ready():
     print(f'Logged in as {bot.user}')
 
-#
-# Reactions
-#
-
+# - Reactions
 @bot.event
 async def on_message(message):
     if message.author.name == 'aquoos':
@@ -43,10 +40,7 @@ async def on_message(message):
             elif roll == 5:
                 await message.channel.send('masz małego siura')
             
-#
-# Commands
-#
-
+# - Commands
 # Test
 @bot.tree.command(name="test", description="test command")
 async def test(interaction: discord.Interaction):
