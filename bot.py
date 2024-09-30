@@ -26,9 +26,23 @@ async def on_message(message):
     if message.author.name == 'aquoos':
         roll = random.randint(1, 5)
         if roll == 1:
-            await message.channel.send(f'Bro really just said {message.content} :skull:')
-        
-        
+            await message.channel.send(f'Bro really just said: {message.content} :skull:')
+    if bot.user.mentioned_in(message):
+        if message.author.name == 'kirar00t':
+            await message.channel.send('At your command my liege')
+        else:
+            roll = random.randint(1,5)
+            if roll == 1:
+                await message.channel.send('sam spierdalaj')
+            elif roll == 2:
+                await message.channel.send('twoja stara')
+            elif roll == 3:
+                await message.channel.send(':skull:')
+            elif roll == 4:
+                await message.channel.send('no chyba ty')
+            elif roll == 5:
+                await message.channel.send('masz małego siura')
+            
 #
 # Commands
 #
