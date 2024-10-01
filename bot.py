@@ -20,15 +20,32 @@ async def on_ready():
 # - Reactions
 @bot.event
 async def on_message(message):
+    
+    # Marcin
     if message.author.name == 'aquoos':
         roll = random.randint(1, 5)
         if roll == 1:
             await message.channel.send(f'Bro really just said: {message.content} :skull:')
+    
+    # Juras
+    elif message.author.name == 'bawanisko':
+        roll = random.randint(1, 3)
+        if roll == 2:
+            await message.channel.send('smacznego makaronu :lick:')
+    
+    # Alan
+    elif message.author.name == 'd4rq':
+        roll = random.randint(1, 3)
+        if roll == 2:
+            if message.attachments:
+                await message.channel.send(':lick:')
+
+    # Riposty
     if bot.user.mentioned_in(message):
         if message.author.name == 'kirar00t':
             await message.channel.send('At your command my liege')
         else:
-            roll = random.randint(1,5)
+            roll = random.randint(1,8)
             if roll == 1:
                 await message.channel.send('sam spierdalaj')
             elif roll == 2:
@@ -39,8 +56,15 @@ async def on_message(message):
                 await message.channel.send('no chyba ty')
             elif roll == 5:
                 await message.channel.send('masz małego siura')
+            elif roll == 6:
+                await message.channel.send('twój stary :fire:')
+            elif roll == 7:
+                await message.channel.send('ruchał cie Dawid :lick:')
+            elif roll == 8:
+                await message.channel.send('Kijaszek z ciebie :cold_face:')
             
 # - Commands
+
 # Test
 @bot.tree.command(name="test", description="test command")
 async def test(interaction: discord.Interaction):
