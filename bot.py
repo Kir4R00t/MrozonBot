@@ -1,3 +1,7 @@
+#
+#   This code is made like yandere dev - TODO: fix this disgusting shit
+#
+
 import os
 import requests
 import discord
@@ -33,6 +37,7 @@ async def on_message(message):
         if roll == 2:
             await message.channel.send('smacznego makaronu :lick:')
     
+
     # Alan
     elif message.author.name == 'd4rq':
         roll = random.randint(1, 3)
