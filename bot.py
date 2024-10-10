@@ -1,7 +1,7 @@
 import os
-import requests
-import discord
 import random
+import discord
+import requests
 from discord.ext import commands
 from dotenv import load_dotenv
 
@@ -78,30 +78,4 @@ async def gibcat(interaction: discord.Interaction):
     else:
         await interaction.response.send_message(f"API ERROR: {response.status_code}", ephemeral=False)
 
-
 bot.run(BOT_TOKEN)
-
-
-'''
-    # Marcin
-    if message.author.name == 'aquoos':
-        roll = random.randint(1, 5)
-        if roll == 1:
-            await message.channel.send(f'Bro really just said: {message.content} :skull:')
-    
-    # Juras
-    elif message.author.name == 'bawanisko':
-        roll = random.randint(1, 3)
-        if roll == 2:
-            await message.channel.send('smacznego makaronu :lick:')
-    
-
-    # Alan
-    elif message.author.name == 'd4rq':
-        roll = random.randint(1, 3)
-        if roll == 2:
-            if message.attachments:
-                await message.channel.send(':lick:')
-
-    
-                '''
