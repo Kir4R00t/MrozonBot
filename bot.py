@@ -1,7 +1,3 @@
-#
-#   This code is made like yandere dev - TODO: fix this disgusting shit
-#
-
 import os
 import requests
 import discord
@@ -21,53 +17,41 @@ bot = commands.Bot(command_prefix='!', intents=intents)
 async def on_ready():
     print(f'Logged in as {bot.user}')
 
+def chance_to_respond(chance): # Chance == % of success
+    throw = random.randint(1, 100)
+    if throw <= chance:
+        return True
+    else:
+        return False
+
 # - Reactions
 @bot.event
 async def on_message(message):
-    
-    # Marcin
-    if message.author.name == 'aquoos':
-        roll = random.randint(1, 5)
-        if roll == 1:
-            await message.channel.send(f'Bro really just said: {message.content} :skull:')
-    
-    # Juras
-    elif message.author.name == 'bawanisko':
-        roll = random.randint(1, 3)
-        if roll == 2:
-            await message.channel.send('smacznego makaronu :lick:')
-    
 
-    # Alan
-    elif message.author.name == 'd4rq':
-        roll = random.randint(1, 3)
-        if roll == 2:
-            if message.attachments:
-                await message.channel.send(':lick:')
+    responses = {'aquoos': f'Bro really just said: {message.content} :skull:',
+                'bawanisko': 'smacznego makaronu :lick:',
+                'd4rq': ':lick:'
+    }
+    
+    toxic_responses = ['sam spierdalaj',
+                       'twoja stara',
+                       ':skull:',
+                       'no chyba ty',
+                       'masz małego siura',
+                       'twój stary :fire:',
+                       'ruchał cie Dawid :lick:',
+                       'Kijaszek z ciebie :cold_face:']
 
-    # Riposty
+    if message.author.name in responses:
+        if chance_to_respond(20):
+            await message.channel.send(responses[message.author.name])
+            
     if bot.user.mentioned_in(message):
         if message.author.name == 'kirar00t':
             await message.channel.send('At your command my liege')
         else:
-            roll = random.randint(1,8)
-            if roll == 1:
-                await message.channel.send('sam spierdalaj')
-            elif roll == 2:
-                await message.channel.send('twoja stara')
-            elif roll == 3:
-                await message.channel.send(':skull:')
-            elif roll == 4:
-                await message.channel.send('no chyba ty')
-            elif roll == 5:
-                await message.channel.send('masz małego siura')
-            elif roll == 6:
-                await message.channel.send('twój stary :fire:')
-            elif roll == 7:
-                await message.channel.send('ruchał cie Dawid :lick:')
-            elif roll == 8:
-                await message.channel.send('Kijaszek z ciebie :cold_face:')
-            
+            await message.channel.send(toxic_responses[random.randint(0, len(toxic_responses))]) # Roll a random response
+    
 # - Commands
 
 # Test
@@ -96,3 +80,28 @@ async def gibcat(interaction: discord.Interaction):
 
 
 bot.run(BOT_TOKEN)
+
+
+'''
+    # Marcin
+    if message.author.name == 'aquoos':
+        roll = random.randint(1, 5)
+        if roll == 1:
+            await message.channel.send(f'Bro really just said: {message.content} :skull:')
+    
+    # Juras
+    elif message.author.name == 'bawanisko':
+        roll = random.randint(1, 3)
+        if roll == 2:
+            await message.channel.send('smacznego makaronu :lick:')
+    
+
+    # Alan
+    elif message.author.name == 'd4rq':
+        roll = random.randint(1, 3)
+        if roll == 2:
+            if message.attachments:
+                await message.channel.send(':lick:')
+
+    
+                '''
